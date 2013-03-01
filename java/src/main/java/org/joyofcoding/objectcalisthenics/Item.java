@@ -21,6 +21,12 @@ public class Item {
         items.get(i).setQuality(items.get(i).getQuality() + 1);
     }
 
+    static void sellInItemsQualityIncrease(List<Item> items, int i) {
+        if (items.get(i).getQuality() < 50) {
+            increaseItemQuality(items, i);
+        }
+    }
+
     public String getName() {
         return name;
     }
