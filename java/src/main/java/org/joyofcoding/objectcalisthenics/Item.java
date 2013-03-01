@@ -1,7 +1,5 @@
 package org.joyofcoding.objectcalisthenics;
 
-import java.util.List;
-
 public class Item {
     private String name;
     private int sellIn;
@@ -13,17 +11,17 @@ public class Item {
         this.sellIn = sellIn;
     }
 
-    static void decreaseItemQuality(List<Item> items, int i) {
-        items.get(i).setQuality(items.get(i).getQuality() - 1);
+    static void decreaseItemQuality(Item item) {
+        item.setQuality(item.getQuality() - 1);
     }
 
-    static void increaseItemQuality(List<Item> items, int i) {
-        items.get(i).setQuality(items.get(i).getQuality() + 1);
+    static void increaseItemQuality(Item item) {
+        item.setQuality(item.getQuality() + 1);
     }
 
-    static void sellInItemsQualityIncrease(List<Item> items, int i) {
-        if (items.get(i).getQuality() < 50) {
-            increaseItemQuality(items, i);
+    static void sellInItemsQualityIncrease(Item item) {
+        if (item.getQuality() < 50) {
+            increaseItemQuality(item);
         }
     }
 
