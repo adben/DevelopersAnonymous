@@ -31,12 +31,12 @@ public class GildedRose {
                 if (items.get(i).getQuality() > 0) {
                     if (!items.get(i).getName()
                             .equals("Sulfuras, Hand of Ragnaros")) {
-                        items.get(i).setQuality(items.get(i).getQuality() - 1);
+                        decreaseItemQuality(items, i);
                     }
                 }
             } else {
                 if (items.get(i).getQuality() < 50) {
-                    items.get(i).setQuality(items.get(i).getQuality() + 1);
+                    increaseItemQuality(items, i);
 
                     if (items
                             .get(i)
@@ -44,15 +44,13 @@ public class GildedRose {
                             .equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items.get(i).getSellIn() < 11) {
                             if (items.get(i).getQuality() < 50) {
-                                items.get(i).setQuality(
-                                        items.get(i).getQuality() + 1);
+                                increaseItemQuality(items, i);
                             }
                         }
 
                         if (items.get(i).getSellIn() < 6) {
                             if (items.get(i).getQuality() < 50) {
-                                items.get(i).setQuality(
-                                        items.get(i).getQuality() + 1);
+                                increaseItemQuality(items, i);
                             }
                         }
                     }
@@ -72,8 +70,7 @@ public class GildedRose {
                         if (items.get(i).getQuality() > 0) {
                             if (!items.get(i).getName()
                                     .equals("Sulfuras, Hand of Ragnaros")) {
-                                items.get(i).setQuality(
-                                        items.get(i).getQuality() - 1);
+                                decreaseItemQuality(items, i);
                             }
                         }
                     } else {
@@ -83,11 +80,19 @@ public class GildedRose {
                     }
                 } else {
                     if (items.get(i).getQuality() < 50) {
-                        items.get(i).setQuality(items.get(i).getQuality() + 1);
+                        increaseItemQuality(items, i);
                     }
                 }
             }
         }
+    }
+
+    private void decreaseItemQuality(List<Item> items, int i) {
+        items.get(i).setQuality(items.get(i).getQuality() - 1);
+    }
+
+    private void increaseItemQuality(List<Item> items, int i) {
+        items.get(i).setQuality(items.get(i).getQuality() + 1);
     }
 
 }
