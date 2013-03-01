@@ -5,8 +5,6 @@ import java.util.List;
 
 public class GildedRose {
 
-    public static final String BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
-
     public static void main(String[] args) {
         GildedRose gildedRose = new GildedRose();
         gildedRose.updateQuality(gildedRose.makeItems());
