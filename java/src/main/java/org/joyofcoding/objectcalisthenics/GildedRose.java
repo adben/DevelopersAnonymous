@@ -29,56 +29,55 @@ public class GildedRose {
     }
 
     public void updateQuality(List<Item> list) {
-        List<Item> items = list;
-        for (int i = 0; i < items.size(); i++) {
-            if (!AGED_BRIE.equals(items.get(i).getName())
-                    && !BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT.equals(items
+        for (int i = 0; i < list.size(); i++) {
+            if (!AGED_BRIE.equals(list.get(i).getName())
+                    && !BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT.equals(list
                     .get(i)
                     .getName())) {
-                if (items.get(i).getQuality() > 0) {
-                    if (!SULFURAS_HAND_OF_RAGNAROS.equals(items.get(i).getName())) {
-                        Item.decreaseItemQuality(items, i);
+                if (list.get(i).getQuality() > 0) {
+                    if (!SULFURAS_HAND_OF_RAGNAROS.equals(list.get(i).getName())) {
+                        Item.decreaseItemQuality(list, i);
                     }
                 }
             } else {
-                if (items.get(i).getQuality() < 50) {
-                    Item.increaseItemQuality(items, i);
+                if (list.get(i).getQuality() < 50) {
+                    Item.increaseItemQuality(list, i);
 
-                    if (BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT.equals(items
+                    if (BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT.equals(list
                             .get(i)
                             .getName())) {
-                        if (items.get(i).getSellIn() < 11) {
-                            Item.sellInItemsQualityIncrease(items, i);
+                        if (list.get(i).getSellIn() < 11) {
+                            Item.sellInItemsQualityIncrease(list, i);
                         }
 
-                        if (items.get(i).getSellIn() < 6) {
-                            Item.sellInItemsQualityIncrease(items, i);
+                        if (list.get(i).getSellIn() < 6) {
+                            Item.sellInItemsQualityIncrease(list, i);
                         }
                     }
                 }
             }
 
-            if (!SULFURAS_HAND_OF_RAGNAROS.equals(items.get(i).getName())) {
-                items.get(i).setSellIn(items.get(i).getSellIn() - 1);
+            if (!SULFURAS_HAND_OF_RAGNAROS.equals(list.get(i).getName())) {
+                list.get(i).setSellIn(list.get(i).getSellIn() - 1);
             }
 
-            if (items.get(i).getSellIn() < 0) {
-                if (!items.get(i).getName().equals(AGED_BRIE)) {
-                    if (!BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT.equals(items
+            if (list.get(i).getSellIn() < 0) {
+                if (!list.get(i).getName().equals(AGED_BRIE)) {
+                    if (!BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT.equals(list
                             .get(i)
                             .getName())) {
-                        if (items.get(i).getQuality() > 0) {
-                            if (!SULFURAS_HAND_OF_RAGNAROS.equals(items.get(i).getName())) {
-                                Item.decreaseItemQuality(items, i);
+                        if (list.get(i).getQuality() > 0) {
+                            if (!SULFURAS_HAND_OF_RAGNAROS.equals(list.get(i).getName())) {
+                                Item.decreaseItemQuality(list, i);
                             }
                         }
                     } else {
-                        items.get(i).setQuality(
-                                items.get(i).getQuality()
-                                        - items.get(i).getQuality());
+                        list.get(i).setQuality(
+                                list.get(i).getQuality()
+                                        - list.get(i).getQuality());
                     }
                 } else {
-                    Item.sellInItemsQualityIncrease(items, i);
+                    Item.sellInItemsQualityIncrease(list, i);
                 }
             }
         }
